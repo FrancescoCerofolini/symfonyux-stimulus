@@ -93,4 +93,16 @@ class CartController extends AbstractController
 
         return $this->redirectToRoute('app_cart');
     }
+
+    /**
+     * @Route("/cart/_list", name="_app_cart_list")
+     * @param CartStorage $cartStorage
+     * @return Response
+     */
+    public function _shoppingCartList(CartStorage $cartStorage): Response
+    {
+        return $this->render('cart/_cartList.html.twig', [
+            'cart' => $cartStorage->getOrCreateCart()
+        ]);
+    }
 }
