@@ -12,7 +12,7 @@
             <div class="col-3"></div>
         </div>
         {% for item in cart.items %}
-            <div data-action="submit-confirm:async:submitted->cart-list#removeItem" class="cart-item row p-3">
+            <div data-action="submit-confirm:async:submitted->reload-content#refreshContent" class="cart-item row p-3">
                 <div class="col-2">
                     {{ item.product.name }}
                 </div>
