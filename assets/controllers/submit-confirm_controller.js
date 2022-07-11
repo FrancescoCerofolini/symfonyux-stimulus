@@ -1,18 +1,19 @@
-import { Controller } from "@hotwired/stimulus";
+import { Controller } from 'stimulus';
 import Swal from 'sweetalert2';
-import { useDispatch } from "stimulus-use";
+import { useDispatch } from 'stimulus-use';
 
-// /** stimulusFetch: 'lazy' */
+/* stimulusFetch: 'lazy' */
 export default class extends Controller {
     static values = {
         title: String,
         text: String,
         icon: String,
         confirmButtonText: String,
+        submitAsync: Boolean,
     }
 
     connect() {
-        useDispatch(this)
+        useDispatch(this);
     }
 
     onSubmit(event) {
@@ -28,7 +29,7 @@ export default class extends Controller {
             confirmButtonText: this.confirmButtonTextValue || 'Yes',
             showLoaderOnConfirm: true,
             preConfirm: () => {
-                return  this.submitForm();
+                return this.submitForm();
             }
         });
     }
@@ -42,7 +43,7 @@ export default class extends Controller {
 
         const response = await fetch(this.element.action, {
             method: this.element.method,
-            body: new URLSearchParams(new FormData(this.element))
+            body: new URLSearchParams(new FormData(this.element)),
         });
 
         this.dispatch('async:submitted', {

@@ -36,6 +36,16 @@ class CartController extends AbstractController
     }
 
     /**
+     * @Route("/cart/_list", name="_app_cart_list")
+     */
+    public function _shoppingCartList(CartStorage $cartStorage)
+    {
+        return $this->render('cart/_cartList.html.twig', [
+            'cart' => $cartStorage->getOrCreateCart(),
+        ]);
+    }
+
+    /**
      * @Route("/product/{id}", name="app_cart_add_item", methods={"POST"})
      */
     public function addItemToCart(Product $product, Request $request, CategoryRepository $categoryRepository, CartStorage $cartStorage)
@@ -92,17 +102,5 @@ class CartController extends AbstractController
         $this->addFlash('success', 'Item removed!');
 
         return $this->redirectToRoute('app_cart');
-    }
-
-    /**
-     * @Route("/cart/_list", name="_app_cart_list")
-     * @param CartStorage $cartStorage
-     * @return Response
-     */
-    public function _shoppingCartList(CartStorage $cartStorage): Response
-    {
-        return $this->render('cart/_cartList.html.twig', [
-            'cart' => $cartStorage->getOrCreateCart()
-        ]);
     }
 }

@@ -85,7 +85,23 @@ symfony serve -d
 (If this is your first time using this command, you may see an
 error that you need to run `symfony server:ca:install` first).
 
-Now check out the site at `https://localhost:8000`. Enjoy!
+Now check out the site at `https://localhost:8000`. But don't
+forget about the next step - setting up the Frontend assets!
+
+**5) Frontend Assets**
+
+The frontend is built with Encore. First download the node packages
+via yarn:
+
+```
+yarn install
+```
+
+Then use Encore to build the assets with:
+
+```
+yarn watch
+```
 
 ## Have Ideas, Feedback or an Issue?
 

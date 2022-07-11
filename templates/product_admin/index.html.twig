@@ -3,23 +3,37 @@
 {% block title %}Product index{% endblock %}
 
 {% block body %}
-    <div class="container-fluid mt-4" {{ stimulus_controller('reload-content', { url: path('product_admin_index', {ajax: 1}) }) }} data-action="modal-form:success->reload-content#refreshContent ">
-        <div class="d-flex flex-row">
-            <h1 class="me-3">Product index</h1>
-            <div {{ stimulus_controller('modal-form', {
+<div
+    class="container-fluid mt-4"
+    {{ stimulus_controller('reload-content', {
+        url: path('product_admin_index', { ajax: 1 })
+    }) }}
+    data-action="modal-form:success->reload-content#refreshContent"
+>
+    <div class="d-flex flex-row">
+        <h1 class="me-3">Product index</h1>
+
+        <div
+            {{ stimulus_controller('modal-form', {
                 formUrl: path('product_admin_new')
-            }) }} data-action="hidden.bs.modal->modal-form#modalHidden">
-                <button data-action="modal-form#openModal" class="btn btn-outline-primary btn-sm">Add +</button>
-                {{ include('_modal.html.twig', {
-                    modalTitle: 'Add a new Product'
-                }) }}
-            </div>
-        </div>
+            }) }}
+            data-action="hidden.bs.modal->modal-form#modalHidden"
+        >
+            <button
+                class="btn btn-primary btn-sm"
+                data-action="modal-form#openModal"
+            >Add+</button>
 
-        <div data-reload-content-target="content">
-        {{ include('product_admin/_list.html.twig') }}
+            {{ include('_modal.html.twig', {
+                modalTitle: 'Add a new Product',
+            }) }}
         </div>
-
-        <a href="{{ path('product_admin_new') }}">Create new</a>
     </div>
+
+    <div data-reload-content-target="content">
+        {{ include('product_admin/_list.html.twig') }}
+    </div>
+
+    <a href="{{ path('product_admin_new') }}">Create new</a>
+</div>
 {% endblock %}

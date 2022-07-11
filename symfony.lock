@@ -99,6 +99,12 @@
     "laminas/laminas-code": {
         "version": "4.0.0"
     },
+    "laminas/laminas-eventmanager": {
+        "version": "3.3.0"
+    },
+    "laminas/laminas-zendframework-bridge": {
+        "version": "1.1.1"
+    },
     "monolog/monolog": {
         "version": "2.2.0"
     },
@@ -173,6 +179,9 @@
         "files": [
             "config/packages/dev/debug.yaml"
         ]
+    },
+    "symfony/debug-pack": {
+        "version": "v1.0.9"
     },
     "symfony/dependency-injection": {
         "version": "v5.2.1"
@@ -278,6 +287,9 @@
     "symfony/options-resolver": {
         "version": "v5.2.1"
     },
+    "symfony/orm-pack": {
+        "version": "v2.1.0"
+    },
     "symfony/polyfill-intl-grapheme": {
         "version": "v1.22.0"
     },
@@ -295,6 +307,9 @@
     },
     "symfony/polyfill-php80": {
         "version": "v1.22.0"
+    },
+    "symfony/profiler-pack": {
+        "version": "v1.0.5"
     },
     "symfony/property-access": {
         "version": "v5.2.1"
@@ -346,6 +361,9 @@
     "symfony/serializer": {
         "version": "v5.2.3"
     },
+    "symfony/serializer-pack": {
+        "version": "v1.0.4"
+    },
     "symfony/service-contracts": {
         "version": "v2.2.0"
     },
@@ -375,8 +393,11 @@
             "templates/base.html.twig"
         ]
     },
+    "symfony/twig-pack": {
+        "version": "v1.0.1"
+    },
     "symfony/ux-chartjs": {
-        "version": "v1.2.0"
+        "version": "v1.1.0"
     },
     "symfony/validator": {
         "version": "4.3",
@@ -412,12 +433,12 @@
         ]
     },
     "symfony/webpack-encore-bundle": {
-        "version": "1.14",
+        "version": "1.9",
         "recipe": {
             "repo": "github.com/symfony/recipes",
-            "branch": "main",
+            "branch": "master",
             "version": "1.9",
-            "ref": "f466b6384e592cfda11ca2361bbf7c7287b58f55"
+            "ref": "579d8de06df2ceb34d39e84e84c0c051b9b5ac68"
         },
         "files": [
             "assets/app.js",
@@ -425,6 +446,9 @@
             "assets/controllers.json",
             "assets/controllers/hello_controller.js",
             "assets/styles/app.css",
+            "config/packages/assets.yaml",
+            "config/packages/prod/webpack_encore.yaml",
+            "config/packages/test/webpack_encore.yaml",
             "config/packages/webpack_encore.yaml",
             "package.json",
             "webpack.config.js"

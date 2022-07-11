@@ -1,21 +1,21 @@
-import { Controller } from "@hotwired/stimulus";
-import { Modal } from "bootstrap";
-import $ from "jquery";
-import { useDispatch } from "stimulus-use";
+import { Controller } from 'stimulus';
+import { Modal } from 'bootstrap';
+import $ from 'jquery';
+import { useDispatch } from 'stimulus-use';
 
 export default class extends Controller {
     static targets = ['modal', 'modalBody'];
-    static values =  {
+    static values = {
         formUrl: String,
     }
     modal = null;
 
     connect() {
-        useDispatch(this)
+        useDispatch(this);
     }
 
     async openModal(event) {
-        this.modalBodyTarget.innerHTML = 'Loading... '
+        this.modalBodyTarget.innerHTML = 'Loading...';
         this.modal = new Modal(this.modalTarget);
         this.modal.show();
 
@@ -28,18 +28,18 @@ export default class extends Controller {
 
         try {
             await $.ajax({
-                url: $form.formUrlValue,
-                method:$form.prop('method'),
+                url: this.formUrlValue,
+                method: $form.prop('method'),
                 data: $form.serialize(),
             });
             this.modal.hide();
-            this.dispatch('success')
+            this.dispatch('success');
         } catch (e) {
             this.modalBodyTarget.innerHTML = e.responseText;
         }
     }
 
     modalHidden() {
-        console.log('it was hidden');
+        console.log('it was hidden!');
     }
 }

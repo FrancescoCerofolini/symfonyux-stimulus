@@ -1,11 +1,11 @@
-import { Controller} from "@hotwired/stimulus";
+import { Controller } from 'stimulus';
 
 export default class extends Controller {
     onChartConnect(event) {
         this.chart = event.detail.chart;
 
         setTimeout(() => {
-            this.setNewData()
+            this.setNewData();
         }, 5000)
     }
 
